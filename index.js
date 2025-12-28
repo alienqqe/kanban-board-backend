@@ -13,7 +13,8 @@ const app = express()
 
 const corsOptions = {
   origin: [
-    'http://localhost:3000, https://kanban-board-228-er6tfv9kx-alienqqes-projects.vercel.app/',
+    'http://localhost:3000',
+    'https://kanban-board-228-er6tfv9kx-alienqqes-projects.vercel.app/',
   ],
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   credentials: true,
