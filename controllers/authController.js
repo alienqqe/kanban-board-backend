@@ -77,7 +77,7 @@ exports.login = async (req, res) => {
     sameSite: isProd ? 'none' : 'lax',
     partitioned: isProd,
     path: '/',
-    domain: isProd ? '.kanban-board-228.vercel.app' : undefined,
+
     maxAge: 15 * 60 * 1000,
   })
 
@@ -86,7 +86,7 @@ exports.login = async (req, res) => {
     secure: isProd,
     sameSite: isProd ? 'none' : 'lax',
     partitioned: isProd,
-    domain: isProd ? '.kanban-board-228.vercel.app' : undefined,
+
     path: '/',
     maxAge: 7 * 24 * 60 * 60 * 1000,
   })
