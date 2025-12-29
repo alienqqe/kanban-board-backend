@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 const supabase = require('../utils/supabaseClient.js')
 const dotenv = require('dotenv')
 dotenv.config()
+const isProd = process.env.NODE_ENV === 'production'
 
 const JWT_SECRET = process.env.JWT_SECRET
 const REFRESH_SECRET = process.env.REFRESH_SECRET
@@ -72,15 +73,15 @@ exports.login = async (req, res) => {
 
   res.cookie('accessToken', accessToken, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
+    secure: isProd,
+    sameSite: isProd ? 'none' : 'lax',
     maxAge: 15 * 60 * 1000,
   })
 
   res.cookie('refreshToken', refreshToken, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
+    secure: isProd,
+    sameSite: isProd ? 'none' : 'lax',
     maxAge: 7 * 24 * 60 * 60 * 1000,
   })
 
